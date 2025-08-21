@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Display a message indicating the start of the installation
+# Print a line of dashes
+echo "--------------------------------------------------"
+# Print a blank line
+echo ""
+echo "Esse Script vai instalar o Nextcloud, via snap, para UBUNTU ,com as senhas padrao da MENDES"
+# Print a blank line
+echo ""
+# Print another line of dashes
+echo "--------------------------------------------------"
+# Pause the script for 5 seconds
+sleep 5
+#Instalar o SNAP
+sudo snap install nextcloud
+#fazer usuario e nome
+sudo nextcloud.manual-install admin @User123
+echo ""
+echo ""
+echo "Usuario admin, senha @User123"
+echo ""
+echo ""
+sleep 5
+#habilitar o auto assinado
+sudo nextcloud.enable-https self-signed
+
+echo "Instalação finalizada!"
+echo ""
+echo "execute o comando sudo nextcloud.occ config:system:set trusted_domains 1 --value=SEU DOMÍNIO pra liberar o acesso do link pra ele, caso contrário só vai liberar via 127.0.0.1."
+echo ""
